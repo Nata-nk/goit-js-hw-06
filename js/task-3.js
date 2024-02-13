@@ -1,4 +1,25 @@
-const builder = new StringBuilder(".");
+class StringBuilder {
+    #value;
+    constructor({ value }) {
+        this.#value = value;
+    }
+    getValue() {
+    return this.#value;
+    }
+    padEnd(str) {
+        this.#value += str;
+    }
+    padStart(str) {
+        this.#value = str + this.#value;
+    }
+    padBoth(str) {
+            this.#value = str + this.#value + str;
+    }
+}
+
+const builder = new StringBuilder({
+    value: ".",
+});
 console.log(builder.getValue()); // "."
 builder.padStart("^");
 console.log(builder.getValue()); // "^."
